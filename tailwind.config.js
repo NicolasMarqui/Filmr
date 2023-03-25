@@ -11,6 +11,9 @@ module.exports = {
       fontFamily: {
         logo: ["Delicious Handrawn", "cursive"],
       },
+      backgroundImage: {
+        "home-bg": "url('/assets/bg.jpeg')",
+      },
     },
   },
   plugins: [],

@@ -1,15 +1,15 @@
-<div class="header absolute top-0 left-0 right-0">
+<div class="header absolute top-0 left-0 right-0 z-[100]">
   <div class="container flex items-center justify-between mx-auto p-8">
     <nav>
       <ul class="nav__container">
         <li>
-          <a class="nav__link">
+          <a routerLink="/" class="nav__link">
             <fa-icon [icon]="homeIcon" [styles]="{ color: 'white' }"></fa-icon>
             <p class="nav__text">Home</p>
           </a>
         </li>
         <li>
-          <a class="nav__link">
+          <a routerLink="/movies" class="nav__link">
             <fa-icon [icon]="filmIcon" [styles]="{ color: 'white' }"></fa-icon>
             <p class="nav__text">Movies</p>
           </a>
@@ -18,7 +18,10 @@
     </nav>
 
     <div>
-      <a class="cursor-pointer hover:scale-105 transform transition-all">
+      <a
+        routerLink="/"
+        class="cursor-pointer hover:scale-105 transform transition-all"
+      >
         <h1 class="font-logo text-white text-5xl">Filmr</h1>
       </a>
     </div>
@@ -26,7 +29,7 @@
     <nav>
       <ul class="nav__container">
         <li>
-          <a class="nav__link">
+          <a routerLink="/search" class="nav__link">
             <fa-icon
               [icon]="searchIcon"
               [styles]="{ color: 'white' }"
@@ -35,7 +38,7 @@
           </a>
         </li>
         <li>
-          <a class="nav__link">
+          <a routerLink="/favorites" class="nav__link">
             <fa-icon
               [icon]="favouriteIcon"
               [styles]="{ color: 'white' }"
