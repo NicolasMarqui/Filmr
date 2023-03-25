@@ -1,0 +1,49 @@
+<div class="header absolute top-0 left-0 right-0">
+  <div class="container flex items-center justify-between mx-auto p-8">
+    <nav>
+      <ul class="nav__container">
+        <li>
+          <a class="nav__link">
+            <fa-icon [icon]="homeIcon" [styles]="{ color: 'white' }"></fa-icon>
+            <p class="nav__text">Home</p>
+          </a>
+        </li>
+        <li>
+          <a class="nav__link">
+            <fa-icon [icon]="filmIcon" [styles]="{ color: 'white' }"></fa-icon>
+            <p class="nav__text">Movies</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div>
+      <a class="cursor-pointer hover:scale-105 transform transition-all">
+        <h1 class="font-logo text-white text-5xl">Filmr</h1>
+      </a>
+    </div>
+
+    <nav>
+      <ul class="nav__container">
+        <li>
+          <a class="nav__link">
+            <fa-icon
+              [icon]="searchIcon"
+              [styles]="{ color: 'white' }"
+            ></fa-icon>
+            <p class="nav__text">Search</p>
+          </a>
+        </li>
+        <li>
+          <a class="nav__link">
+            <fa-icon
+              [icon]="favouriteIcon"
+              [styles]="{ color: 'white' }"
+            ></fa-icon>
+            <p class="nav__text">Favorites</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
