@@ -7,13 +7,17 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { SearchpageComponent } from './components/searchpage/searchpage.component';
+import { SearchInputComponent } from './components/search-input/search-input.component';
+import { TrackedMoviesComponent } from './components/tracked-movies/tracked-movies.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomepageComponent,
-    SearchpageComponent
+    SearchpageComponent,
+    SearchInputComponent,
+    TrackedMoviesComponent
   ],
   imports: [
     BrowserModule,

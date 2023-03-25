@@ -1,0 +1,9 @@
+<div class="container my-4">
+  <div *ngIf="trackedMovies.length > 0; else noMovies"></div>
+
+  <ng-template #noMovies>
+    <div class="text-center">
+      <h4 class="text-white">No movies oooops ;(</h4>
+    </div>
+  </ng-template>
+</div>

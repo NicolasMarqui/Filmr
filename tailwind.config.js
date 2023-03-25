@@ -15,6 +15,10 @@ module.exports = {
         "home-bg": "url('/assets/bg.jpeg')",
       },
     },
+    container: {
+      center: true,
+      padding: ".75rem",
+    },
   },
   plugins: [],
 };
