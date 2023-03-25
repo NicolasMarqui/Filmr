@@ -2,7 +2,16 @@
 module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#F9AB01",
+        green: "#29B473",
+        dark: "#0D1321",
+      },
+      fontFamily: {
+        logo: ["Delicious Handrawn", "cursive"],
+      },
+    },
   },
   plugins: [],
 };

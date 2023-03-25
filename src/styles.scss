@@ -2,3 +2,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Poppins", system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .nav__container {
+    @apply flex items-center gap-5;
+  }
+  .nav__link {
+    @apply flex items-center text-white gap-4 cursor-pointer hover:scale-105 transition-all hover:opacity-20 rounded-full px-2;
+  }
+
+  .nav__text {
+    @apply text-sm font-light hidden md:block;
+  }
+}
