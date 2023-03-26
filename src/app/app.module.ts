@@ -13,6 +13,7 @@ import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import { MoviesListComponent } from './components/movies-list/movies-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
 
 export function playerFactory() {
   return player;
@@ -27,6 +28,7 @@ export function playerFactory() {
     SearchInputComponent,
     TrackedMoviesComponent,
     MoviesListComponent,
+    MovieCardComponent,
   ],
   imports: [
     BrowserModule,
