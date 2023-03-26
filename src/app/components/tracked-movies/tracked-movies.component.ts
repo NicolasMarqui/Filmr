@@ -27,5 +27,23 @@ export class TrackedMoviesComponent {
     this.trackedMovies = movies;
   }
 
+  handleOnDelete(id: number) {
+    const all = JSON.parse(this.local.getData('tracked') || '[]');
+    const movieId = id;
+
+    if (all && all.length > 0) {
+      let alter = function (movie: any) {
+        return movie.id !== movieId;
+      };
+
+      const save = all.filter(alter);
+
+      this.local.saveData('tracked', JSON.stringify(save));
+      this.trackedMovies = save;
+
+      return;
+    }
+  }
+
   animationCreated(animationItem: AnimationItem): void {}
 }

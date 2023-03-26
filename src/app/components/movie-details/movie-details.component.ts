@@ -31,7 +31,6 @@ export class MovieDetailsComponent {
         this.movieDetail = movie;
         this.backdrop = `${this.backdrop_url}/${movie.backdrop_path}`;
         this.poster = `${this.poster_url}/${movie.poster_path}`;
-        console.log(movie);
       });
   }
 }

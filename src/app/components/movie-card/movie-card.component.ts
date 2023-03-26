@@ -18,7 +18,6 @@ export class MovieCardComponent {
   poster_url: string = `https://image.tmdb.org/t/p/w500`;
 
   ngOnInit() {
-    console.log(this.movie.poster_path);
     this.poster = `${this.poster_url}/${this.movie?.poster_path}`;
   }
 }

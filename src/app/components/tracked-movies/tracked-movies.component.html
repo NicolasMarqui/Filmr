@@ -20,6 +20,7 @@
       <app-movie-card-simplified
         *ngFor="let movies of trackedMovies"
         [movie]="movies"
+        (onDelete)="handleOnDelete($event)"
       ></app-movie-card-simplified>
     </div>
   </div>
