@@ -9,6 +9,12 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { SearchpageComponent } from './components/searchpage/searchpage.component';
 import { SearchInputComponent } from './components/search-input/search-input.component';
 import { TrackedMoviesComponent } from './components/tracked-movies/tracked-movies.component';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+
+export function playerFactory() {
+  return player;
+}
 
 @NgModule({
   declarations: [
@@ -17,14 +23,15 @@ import { TrackedMoviesComponent } from './components/tracked-movies/tracked-movi
     HomepageComponent,
     SearchpageComponent,
     SearchInputComponent,
-    TrackedMoviesComponent
+    TrackedMoviesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    LottieModule.forRoot({ player: playerFactory }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

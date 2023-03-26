@@ -1,9 +1,26 @@
-<div class="container my-4">
+<div class="container my-6">
   <div *ngIf="trackedMovies.length > 0; else noMovies"></div>
 
   <ng-template #noMovies>
     <div class="text-center">
-      <h4 class="text-white">No movies oooops ;(</h4>
+      <div class="h-20">
+        <ng-lottie
+          [options]="options"
+          (animationCreated)="animationCreated($event)"
+        ></ng-lottie>
+      </div>
+      <h2 class="text-white font-bold">
+        Your tracked movies ({{ trackedMovies.length }})
+      </h2>
+      <h4 class="text-white text-sm opacity-25">
+        It looks like you haven't tracked any movie yet!
+      </h4>
+
+      <button
+        class="mt-5 bg-primary rounded-md p-3 hover:scale-110 transform transition-all text-xs"
+      >
+        Explore now
+      </button>
     </div>
   </ng-template>
 </div>
