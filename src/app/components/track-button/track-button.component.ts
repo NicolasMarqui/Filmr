@@ -1,3 +1,5 @@
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
 import { ActivatedRoute } from '@angular/router';
 import { IMovieDetail } from './../../_models/index';
 import { LocalService } from './../../_services/local.service';
@@ -14,7 +16,12 @@ export class TrackButtonComponent {
   isBeingTracked: boolean = false;
   filmIcon = faFilm;
   checkIcon = faCheck;
+  shouldToggleAnimation = false;
   hasRouteId = this.route.snapshot.paramMap.get('id');
+
+  options: AnimationOptions = {
+    path: '/assets/animations/fireworks.json',
+  };
 
   constructor(private local: LocalService, private route: ActivatedRoute) {}
 
@@ -23,6 +30,10 @@ export class TrackButtonComponent {
   }
 
   startTrackingMovie() {
+    if (this.isBeingTracked) {
+      return this.removeFromTracking();
+    }
+
     const objToSave = {
       id: this.movie.id,
       poster: this.movie.poster_path,
@@ -35,7 +46,16 @@ export class TrackButtonComponent {
     const save = [...all, objToSave];
 
     this.local.saveData('tracked', JSON.stringify(save));
+    this.showAnimation();
     this.checkIfIsBeingTracked();
+  }
+
+  showAnimation() {
+    this.shouldToggleAnimation = true;
+
+    window.setTimeout(() => {
+      this.shouldToggleAnimation = false;
+    }, 6000);
   }
 
   checkIfIsBeingTracked() {
@@ -43,9 +63,6 @@ export class TrackButtonComponent {
     const movieId = this.hasRouteId ? Number(this.hasRouteId) : this.movie.id;
 
     if (!allTrackedMovies) return;
-    if (this.isBeingTracked) {
-      return this.removeFromTracking();
-    }
 
     const parsedTracked = JSON.parse(allTrackedMovies);
 
@@ -74,4 +91,6 @@ export class TrackButtonComponent {
       this.checkIfIsBeingTracked();
     }
   }
+
+  animationCreated(animationItem: AnimationItem): void {}
 }
