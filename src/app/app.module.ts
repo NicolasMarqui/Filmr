@@ -15,6 +15,8 @@ import { MoviesListComponent } from './components/movies-list/movies-list.compon
 import { HttpClientModule } from '@angular/common/http';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { TrackButtonComponent } from './components/track-button/track-button.component';
+import { MovieCardSimplifiedComponent } from './components/movie-card-simplified/movie-card-simplified.component';
 
 export function playerFactory() {
   return player;
@@ -31,6 +33,8 @@ export function playerFactory() {
     MoviesListComponent,
     MovieCardComponent,
     MovieDetailsComponent,
+    TrackButtonComponent,
+    MovieCardSimplifiedComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,14 @@
+<button
+  (click)="startTrackingMovie()"
+  class="mt-5 flex gap-3 bg-primary rounded-md p-3 hover:scale-110 transform transition-all text-xs"
+>
+  <span *ngIf="!isBeingTracked; else notTracked">
+    <fa-icon [icon]="filmIcon"></fa-icon>
+    Add to tracked
+  </span>
+
+  <ng-template #notTracked>
+    <fa-icon [icon]="checkIcon"></fa-icon>
+    Watched
+  </ng-template>
+</button>

@@ -53,3 +53,11 @@ export interface IMovieDetail {
   vote_average?: number;
   vote_count?: number;
 }
+
+export interface ITrackedMovies {
+  id: number;
+  title: string;
+  poster: string;
+  watched: boolean;
+  watchedDate: Date;
+}

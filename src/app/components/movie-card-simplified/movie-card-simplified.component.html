@@ -1,12 +1,9 @@
 <div
   class="relative backdrop rounded-sm shadow-md cursor-pointer hover:scale-110 transform transition-all"
 >
-  <div
-    class="absolute rounded-full p-2 hover:bg-slate-400 top-2 right-2 cursor-pointer hover:scale-105 transform transition-all"
-  >
-    <fa-icon [icon]="favoriteIcon" [styles]="{ color: 'white' }"></fa-icon>
+  <div class="ribbon ribbon-top-left">
+    <span>Watched</span>
   </div>
-
   <img
     [routerLink]="['/movie', movie.id]"
     src="{{ poster }}"
@@ -17,6 +14,5 @@
 
   <div class="absolute bottom-5 left-5 right-5">
     <h4 class="text-white text-xl font-bold">{{ movie.title }}</h4>
-    <app-track-button [movie]="movie"></app-track-button>
   </div>
 </div>
