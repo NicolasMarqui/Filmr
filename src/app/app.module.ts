@@ -11,6 +11,8 @@ import { SearchInputComponent } from './components/search-input/search-input.com
 import { TrackedMoviesComponent } from './components/tracked-movies/tracked-movies.component';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { MoviesListComponent } from './components/movies-list/movies-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 export function playerFactory() {
   return player;
@@ -24,11 +26,13 @@ export function playerFactory() {
     SearchpageComponent,
     SearchInputComponent,
     TrackedMoviesComponent,
+    MoviesListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
+    HttpClientModule,
     LottieModule.forRoot({ player: playerFactory }),
   ],
   providers: [],
