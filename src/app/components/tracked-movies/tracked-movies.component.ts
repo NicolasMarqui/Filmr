@@ -20,6 +20,9 @@ export class TrackedMoviesComponent {
 
   ngOnInit() {
     this.fetchTrackedMovies();
+    this.local.watchStorage().subscribe((data: string) => {
+      this.fetchTrackedMovies();
+    });
   }
 
   fetchTrackedMovies() {

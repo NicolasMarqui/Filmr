@@ -17,6 +17,7 @@ export class FavoriteButtonComponent {
   isFavorited: boolean = false;
   hasRouteId = this.route.snapshot.paramMap.get('id');
   shouldToggleAnimation: boolean = false;
+  poster_url: string = `https://image.tmdb.org/t/p/w500`;
 
   options: AnimationOptions = {
     path: '/assets/animations/favorite.json',
@@ -35,7 +36,7 @@ export class FavoriteButtonComponent {
 
     const objToSave = {
       id: this.movie.id,
-      poster: this.movie.poster_path,
+      poster: `${this.poster_url}${this.movie?.poster_path}`,
       title: this.movie.title,
       favorited: true,
       // watched: this.checkIfFavHasBeenWatched(),

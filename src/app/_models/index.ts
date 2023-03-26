@@ -61,3 +61,10 @@ export interface ITrackedMovies {
   watched: boolean;
   watchedDate: Date;
 }
+
+export interface IFavoritedMovies {
+  id: number;
+  title: string;
+  poster: string;
+  favorited: boolean;
+}

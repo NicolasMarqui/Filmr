@@ -82,9 +82,11 @@ export class TrackButtonComponent {
     const movieId = this.hasRouteId ? Number(this.hasRouteId) : this.movie.id;
 
     if (all && all.length > 0) {
-      const save = all.filter((movie: any) => {
-        movie.id !== movieId;
-      });
+      let alter = function (movie: any) {
+        return movie.id !== movieId;
+      };
+
+      const save = all.filter(alter);
 
       this.local.saveData('tracked', JSON.stringify(save));
       this.isBeingTracked = false;

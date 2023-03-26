@@ -37,14 +37,20 @@
             <p class="nav__text">Search</p>
           </a>
         </li>
-        <li>
-          <a routerLink="/favorites" class="nav__link">
+        <li class="nav__parent">
+          <a class="nav__link">
             <fa-icon
               [icon]="favouriteIcon"
               [styles]="{ color: 'white' }"
             ></fa-icon>
             <p class="nav__text">Favorites</p>
           </a>
+
+          <div
+            class="nav__dropdown shadow-md transform transition-all w-[200px] md:w-[350px] h-[350px]"
+          >
+            <app-favorite-list></app-favorite-list>
+          </div>
         </li>
       </ul>
     </nav>
