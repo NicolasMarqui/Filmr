@@ -18,6 +18,7 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
 import { TrackButtonComponent } from './components/track-button/track-button.component';
 import { MovieCardSimplifiedComponent } from './components/movie-card-simplified/movie-card-simplified.component';
 import { MoviesPageComponent } from './components/movies-page/movies-page.component';
+import { FavoriteButtonComponent } from './components/favorite-button/favorite-button.component';
 
 export function playerFactory() {
   return player;
@@ -37,6 +38,7 @@ export function playerFactory() {
     TrackButtonComponent,
     MovieCardSimplifiedComponent,
     MoviesPageComponent,
+    FavoriteButtonComponent,
   ],
   imports: [
     BrowserModule,
