@@ -27,6 +27,9 @@ export class TrackButtonComponent {
 
   ngOnInit() {
     this.checkIfIsBeingTracked();
+    this.local.watchStorage().subscribe((data: string) => {
+      this.checkIfIsBeingTracked();
+    });
   }
 
   startTrackingMovie() {
@@ -73,6 +76,8 @@ export class TrackButtonComponent {
 
       if (isTracked && isTracked.length > 0) {
         this.isBeingTracked = true;
+      } else {
+        this.isBeingTracked = false;
       }
     }
   }
