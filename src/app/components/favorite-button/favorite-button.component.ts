@@ -27,6 +27,9 @@ export class FavoriteButtonComponent {
 
   ngOnInit() {
     this.checkIfIsBeingFavorited();
+    this.local.watchStorage().subscribe((data: string) => {
+      this.checkIfIsBeingFavorited();
+    });
   }
 
   toggleFavorites() {
@@ -66,6 +69,8 @@ export class FavoriteButtonComponent {
 
       if (isTracked && isTracked.length > 0) {
         this.isFavorited = true;
+      } else {
+        this.isFavorited = false;
       }
     }
   }
