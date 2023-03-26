@@ -17,6 +17,7 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { TrackButtonComponent } from './components/track-button/track-button.component';
 import { MovieCardSimplifiedComponent } from './components/movie-card-simplified/movie-card-simplified.component';
+import { MoviesPageComponent } from './components/movies-page/movies-page.component';
 
 export function playerFactory() {
   return player;
@@ -35,6 +36,7 @@ export function playerFactory() {
     MovieDetailsComponent,
     TrackButtonComponent,
     MovieCardSimplifiedComponent,
+    MoviesPageComponent,
   ],
   imports: [
     BrowserModule,

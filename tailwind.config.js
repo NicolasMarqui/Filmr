@@ -14,6 +14,8 @@ module.exports = {
       },
       backgroundImage: {
         "home-bg": "url('/assets/bg.jpeg')",
+        "movies-bg":
+          "url('https://image.tmdb.org/t/p/original/i8dshLvq4LE3s0v8PrkDdUyb1ae.jpg')",
       },
     },
     container: {
