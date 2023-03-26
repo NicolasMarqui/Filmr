@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IMoviesResponse, IPopularMovies } from '../_models';
+import { IMovieDetail, IMoviesResponse } from '../_models';
 
 @Injectable({
   providedIn: 'root',
@@ -21,5 +21,11 @@ export class MovieService {
           return response;
         })
       );
+  }
+
+  getMovieDetail(id: string): Observable<IMovieDetail> {
+    return this.http.get<IMovieDetail>(
+      `${this.API_URL}/movie/${id}${this.API_KEY}`
+    );
   }
 }
