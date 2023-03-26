@@ -20,6 +20,7 @@ import { MovieCardSimplifiedComponent } from './components/movie-card-simplified
 import { MoviesPageComponent } from './components/movies-page/movies-page.component';
 import { FavoriteButtonComponent } from './components/favorite-button/favorite-button.component';
 import { FavoriteListComponent } from './components/favorite-list/favorite-list.component';
+import { SearchPageComponent } from './components/search-page/search-page.component';
 
 export function playerFactory() {
   return player;
@@ -41,6 +42,7 @@ export function playerFactory() {
     MoviesPageComponent,
     FavoriteButtonComponent,
     FavoriteListComponent,
+    SearchPageComponent,
   ],
   imports: [
     BrowserModule,

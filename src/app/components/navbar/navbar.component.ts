@@ -1,3 +1,4 @@
+import { LocalService } from './../../_services/local.service';
 import { Component, HostListener } from '@angular/core';
 import {
   faHome,
@@ -18,6 +19,9 @@ export class NavbarComponent {
   filmIcon = faFilm;
   userIcon = faUser;
   searchIcon = faSearch;
+  favoritesSize: number = 0;
+
+  constructor(private local: LocalService) {}
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
@@ -27,5 +31,17 @@ export class NavbarComponent {
     } else {
       element.classList.remove('header__fixed');
     }
+  }
+
+  ngOnInit() {
+    this.fetchFavorites();
+    this.local.watchStorage().subscribe((data: string) => {
+      this.fetchFavorites();
+    });
+  }
+
+  fetchFavorites() {
+    const allFav = JSON.parse(this.local.getData('favorites') || '[]');
+    this.favoritesSize = allFav.length;
   }
 }
