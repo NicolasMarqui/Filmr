@@ -28,7 +28,6 @@
           'w-full bg-purple-500 justify-center !text-xl text-white font-bold'
         "
         [movie]="movieDetail"
-        [isInside]="true"
       ></app-track-button>
 
       <div class="flex items-center justify-center gap-3 mt-2">
@@ -62,7 +61,7 @@
           </li>
           <span class="breadcumb__text">/</span>
           <li>
-            <a class="breadcumb__text" routerLink="movies">Movies</a>
+            <a class="breadcumb__text" routerLink="/movies">Movies</a>
           </li>
           <li>
             <span class="breadcumb__text">/</span>
@@ -85,7 +84,6 @@
         <app-favorite-button
           [movie]="movieDetail"
           [classes]="'!relative'"
-          [isInside]="true"
         ></app-favorite-button>
       </div>
 
@@ -198,11 +196,10 @@
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7"
     >
-      <app-movie-card
+      <app-similar-movies-card
         *ngFor="let movie of similarMovies"
         [movie]="movie"
-        [isInside]="true"
-      ></app-movie-card>
+      ></app-similar-movies-card>
     </div>
   </div>
 </div>

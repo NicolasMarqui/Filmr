@@ -15,6 +15,7 @@ export class TrackButtonComponent {
   @Input('movie') movie!: IMovieDetail;
   @Input('classes') classes: string = '';
   @Input('isInside') isInside: boolean = false;
+  @Input('movieId') movieId: string = '';
 
   isBeingTracked: boolean = false;
   filmIcon = faFilm;
@@ -29,7 +30,11 @@ export class TrackButtonComponent {
   constructor(private local: LocalService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.checkIfIsBeingTracked();
+    this.route.url.subscribe((url) => {
+      this.hasRouteId = this.route.snapshot.paramMap.get('id');
+      this.checkIfIsBeingTracked();
+      this.shouldToggleAnimation = false;
+    });
     this.local.watchStorage().subscribe((data: string) => {
       this.checkIfIsBeingTracked();
     });
@@ -66,11 +71,7 @@ export class TrackButtonComponent {
 
   checkIfIsBeingTracked() {
     const allTrackedMovies = this.local.getData('tracked');
-    const movieId = !this.isInside
-      ? this.movie.id
-      : this.hasRouteId
-      ? Number(this.hasRouteId)
-      : this.movie.id;
+    const movieId = this.hasRouteId ? Number(this.hasRouteId) : this.movie.id;
 
     if (!allTrackedMovies) return;
 
@@ -91,11 +92,7 @@ export class TrackButtonComponent {
 
   removeFromTracking() {
     const all = JSON.parse(this.local.getData('tracked') || '[]');
-    const movieId = !this.isInside
-      ? this.movie.id
-      : this.hasRouteId
-      ? Number(this.hasRouteId)
-      : this.movie.id;
+    const movieId = this.hasRouteId ? Number(this.hasRouteId) : this.movie.id;
 
     if (all && all.length > 0) {
       let alter = function (movie: any) {

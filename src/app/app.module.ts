@@ -1,3 +1,4 @@
+import { LazyImgDirective } from './lazyImageDirective';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -25,6 +26,7 @@ import { SearchPageComponent } from './components/search-page/search-page.compon
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 import { BigTitleComponent } from './components/big-title/big-title.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SimilarMoviesCardComponent } from './components/similar-movies-card/similar-movies-card.component';
 
 export function playerFactory() {
   return player;
@@ -50,6 +52,8 @@ export function playerFactory() {
     MovieInfoComponent,
     BigTitleComponent,
     FooterComponent,
+    SimilarMoviesCardComponent,
+    LazyImgDirective,
   ],
   imports: [
     BrowserModule,

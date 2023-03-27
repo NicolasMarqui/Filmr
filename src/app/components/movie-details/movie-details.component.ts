@@ -32,6 +32,7 @@ export class MovieDetailsComponent {
 
   activeVideo: any = {};
   movieIndex: number = 0;
+  movieId: string = '';
   backdrop: string = '';
   backdrop_url: string = `https://image.tmdb.org/t/p/original`;
   poster: string = '';
@@ -54,6 +55,7 @@ export class MovieDetailsComponent {
   ngOnInit() {
     this.route.url.subscribe((url) => {
       this.bulkLoad();
+      this.movieId = this.route.snapshot.paramMap.get('id') ?? '';
     });
   }
 
@@ -88,7 +90,6 @@ export class MovieDetailsComponent {
     this.movie
       .getSimilarMovies(this.route.snapshot.paramMap.get('id') ?? '')
       .subscribe((movie) => {
-        console.log(movie);
         if (movie.results.length > 4) {
           this.similarMovies = movie.results.slice(0, 4);
         } else {
