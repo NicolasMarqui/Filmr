@@ -1,3 +1,4 @@
+import { IVideosResponse } from './../_models/index';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -26,6 +27,12 @@ export class MovieService {
   getMovieDetail(id: string): Observable<IMovieDetail> {
     return this.http.get<IMovieDetail>(
       `${this.API_URL}/movie/${id}${this.API_KEY}`
+    );
+  }
+
+  getMovieVideos(id: string): Observable<{ results: IVideosResponse[] }> {
+    return this.http.get<{ results: IVideosResponse[] }>(
+      `${this.API_URL}/movie/${id}/videos${this.API_KEY}`
     );
   }
 }

@@ -95,6 +95,25 @@
         {{ movieDetail.overview }}
       </p>
 
+      <div class="my-20" *ngIf="movieVideos.length > 0">
+        <youtube-player videoId="{{ activeVideo.key }}"></youtube-player>
+        <div class="flex mt-2 gap-2 justify-start items-center">
+          <button (click)="handlePreviousVideo()">
+            <fa-icon [icon]="backIcon" [ngStyle]="{ color: 'white' }"></fa-icon>
+          </button>
+          <p
+            class="text-gray-200 font-light text-xs"
+            *ngIf="movieVideos.length > 1"
+          >
+            Explorer more videos ({{ movieIndex + 1 }} /
+            {{ movieVideos.length }})
+          </p>
+          <button (click)="handleNextVideo()">
+            <fa-icon [icon]="nextIcon" [ngStyle]="{ color: 'white' }"></fa-icon>
+          </button>
+        </div>
+      </div>
+
       <div class="grid grid-cols-2 gap-6 mt-20">
         <app-movie-info
           [title]="movieDetail.runtime"

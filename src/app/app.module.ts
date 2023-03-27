@@ -1,3 +1,4 @@
+import { YouTubePlayerModule } from '@angular/youtube-player';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -52,6 +53,7 @@ export function playerFactory() {
     FontAwesomeModule,
     HttpClientModule,
     LottieModule.forRoot({ player: playerFactory }),
+    YouTubePlayerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
