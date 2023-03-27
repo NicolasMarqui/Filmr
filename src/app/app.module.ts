@@ -21,6 +21,7 @@ import { MoviesPageComponent } from './components/movies-page/movies-page.compon
 import { FavoriteButtonComponent } from './components/favorite-button/favorite-button.component';
 import { FavoriteListComponent } from './components/favorite-list/favorite-list.component';
 import { SearchPageComponent } from './components/search-page/search-page.component';
+import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 
 export function playerFactory() {
   return player;
@@ -43,6 +44,7 @@ export function playerFactory() {
     FavoriteButtonComponent,
     FavoriteListComponent,
     SearchPageComponent,
+    MovieInfoComponent,
   ],
   imports: [
     BrowserModule,

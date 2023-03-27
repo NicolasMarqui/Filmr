@@ -1,6 +1,8 @@
 <div
   (click)="toggleFavorites()"
-  class="absolute rounded-full p-2 hover:bg-slate-400 top-2 right-2 cursor-pointer hover:scale-105 transform transition-all"
+  class="{{
+    classes
+  }} absolute rounded-full p-2 hover:bg-slate-400 top-2 right-2 cursor-pointer hover:scale-105 transform transition-all"
 >
   <fa-icon
     [icon]="favoriteIcon"

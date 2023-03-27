@@ -13,6 +13,8 @@ import { faFilm, faCheck } from '@fortawesome/free-solid-svg-icons';
 })
 export class TrackButtonComponent {
   @Input('movie') movie!: IMovieDetail;
+  @Input('classes') classes: string = '';
+
   isBeingTracked: boolean = false;
   filmIcon = faFilm;
   checkIcon = faCheck;

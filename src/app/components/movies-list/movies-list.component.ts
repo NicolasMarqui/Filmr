@@ -13,9 +13,9 @@ export class MoviesListComponent {
 
   constructor(private movies: MovieService) {}
 
-  // ngOnInit() {
-  // this.movies.getPopularMovies().subscribe((movie) => {
-  // this.popularMovies = movie.results;
-  //});
-  //}
+  ngOnInit() {
+    this.movies.getPopularMovies().subscribe((movie) => {
+      this.popularMovies = movie.results;
+    });
+  }
 }

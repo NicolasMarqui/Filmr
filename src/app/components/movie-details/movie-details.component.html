@@ -1,22 +1,16 @@
-<div class="h-screen relative">
-  <div class="z-[2] h-[400px] relative">
+<div class="min-h-screen relative">
+  <div class="z-[2] h-[350px] relative">
     <img
       src="{{ backdrop }}"
       alt="{{ movieDetail.title }}"
       class="object-cover absolute inset-0 block h-full w-full opacity-30"
     />
-
-    <div class="absolute bottom-4 right-8 flex items-center gap-4">
-      <app-track-button [movie]="movieDetail"></app-track-button>
-    </div>
   </div>
 
   <div
-    class="container gap-10 relative justify-center items-center flex flex-col md:flex-row z-10"
+    class="-mt-[150px] md:-mt-[130px] relative container gap-10 justify-center items-start flex flex-col md:flex-row z-10"
   >
-    <div
-      class="poster w-[250px] -mt-[150px] md:-mt-[220px] flex flex-col gap-4 relative"
-    >
+    <div class="poster w-[250px] flex flex-col gap-4 sticky top-[85px]">
       <div class="ribbon ribbon-top-left">
         <span>{{ movieDetail.status }}</span>
       </div>
@@ -27,11 +21,15 @@
         class="object-cover w-full shadow-md"
       />
 
-      <span class="text-center text-xs mb-5 block font-light text-white">
-        "{{ movieDetail.tagline }}"
-      </span>
+      <app-track-button
+        [classes]="
+          'w-full bg-purple-500 justify-center !text-xl text-white font-bold'
+        "
+        [movie]="movieDetail"
+      ></app-track-button>
 
-      <div class="flex items-center justify-center">
+      <div class="flex items-center justify-center gap-3 mt-2">
+        <p class="text-white text-xs">Visit on</p>
         <a
           target="_blank"
           class="hover:scale-105 transform transition-all"
@@ -42,23 +40,79 @@
       </div>
     </div>
 
-    <div class="flex-1 flex flex-col gap-5">
+    <div class="flex-1 flex flex-col gap-5 items-stretch">
       <div
-        class="flex items-center gap-8 flex-col md:flex-row justify-center md:justify-between"
+        class="h-[150px] relative flex flex-col gap-3 justify-center items-start"
       >
-        <h3
-          class="text-white font-bold text-2xl md:text-4xl text-center md:text-left"
+        <button
+          (click)="handleGoBack()"
+          class="flex bg-transparent border border-gray-300 items-center rounded-md shadow gap-2 transform hover:scale-110 p-2"
         >
-          {{ movieDetail.title }}
-        </h3>
-        <app-favorite-button [movie]="movieDetail"></app-favorite-button>
+          <fa-icon [icon]="backIcon" [ngStyle]="{ color: 'white' }"></fa-icon>
+
+          <p class="text-white text-sm">Back</p>
+        </button>
+
+        <ul class="flex items-center gap-2">
+          <li>
+            <a class="breadcumb__text" routerLink="/">Home</a>
+          </li>
+          <span class="breadcumb__text">/</span>
+          <li>
+            <a class="breadcumb__text" routerLink="movies">Movies</a>
+          </li>
+          <li>
+            <span class="breadcumb__text">/</span>
+          </li>
+          <li>
+            <span class="breadcumb__text">{{ movieDetail.title }}</span>
+          </li>
+        </ul>
       </div>
 
+      <div
+        class="justify-self-end flex items-center gap-4 flex-col md:flex-row justify-center md:justify-between"
+      >
+        <h2
+          class="text-white font-bold text-2xl md:text-5xl text-center md:text-left"
+        >
+          {{ movieDetail.title }}
+        </h2>
+
+        <app-favorite-button
+          [movie]="movieDetail"
+          [classes]="'!relative'"
+        ></app-favorite-button>
+      </div>
+
+      <span class="text-xs block font-light text-white -mt-3">
+        "{{ movieDetail.tagline }}"
+      </span>
+
       <p
-        class="text-white mt-4 w-[90%] text-center md:text-left text-xs md:text-sm"
+        class="text-white md:w-[70%] mt-4 text-center md:text-left text-xl md:text-sm"
       >
         {{ movieDetail.overview }}
       </p>
+
+      <div class="grid grid-cols-2 gap-6 mt-20">
+        <app-movie-info
+          [title]="movieDetail.runtime"
+          [subtitle]="'Runtime'"
+        ></app-movie-info>
+        <app-movie-info
+          [title]="movieDetail.release_date"
+          [subtitle]="'Release Date'"
+        ></app-movie-info>
+        <app-movie-info
+          [title]="'$' + movieDetail.budget"
+          [subtitle]="'Budget'"
+        ></app-movie-info>
+        <app-movie-info
+          [title]="movieDetail.vote_average?.toFixed(2)"
+          [subtitle]="'Vote average'"
+        ></app-movie-info>
+      </div>
     </div>
   </div>
 </div>

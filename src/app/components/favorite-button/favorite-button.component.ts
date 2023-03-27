@@ -13,6 +13,8 @@ import { Component, Input } from '@angular/core';
 })
 export class FavoriteButtonComponent {
   @Input('movie') movie!: IMovieDetail;
+  @Input('classes') classes: string = '';
+
   favoriteIcon = faHeart;
   isFavorited: boolean = false;
   hasRouteId = this.route.snapshot.paramMap.get('id');

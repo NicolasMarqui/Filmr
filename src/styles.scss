@@ -21,6 +21,10 @@
     @apply text-sm font-light hidden md:block;
   }
 
+  .breadcumb__text {
+    @apply text-xs font-light text-white hover:underline hover:scale-110 transform transition-all block;
+  }
+
   .ribbon {
     width: 150px;
     height: 150px;
