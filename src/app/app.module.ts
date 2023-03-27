@@ -24,6 +24,7 @@ import { FavoriteListComponent } from './components/favorite-list/favorite-list.
 import { SearchPageComponent } from './components/search-page/search-page.component';
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 import { BigTitleComponent } from './components/big-title/big-title.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 export function playerFactory() {
   return player;
@@ -48,6 +49,7 @@ export function playerFactory() {
     SearchPageComponent,
     MovieInfoComponent,
     BigTitleComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
