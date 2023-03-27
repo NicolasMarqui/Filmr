@@ -23,6 +23,7 @@ import { FavoriteButtonComponent } from './components/favorite-button/favorite-b
 import { FavoriteListComponent } from './components/favorite-list/favorite-list.component';
 import { SearchPageComponent } from './components/search-page/search-page.component';
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
+import { BigTitleComponent } from './components/big-title/big-title.component';
 
 export function playerFactory() {
   return player;
@@ -46,6 +47,7 @@ export function playerFactory() {
     FavoriteListComponent,
     SearchPageComponent,
     MovieInfoComponent,
+    BigTitleComponent,
   ],
   imports: [
     BrowserModule,
