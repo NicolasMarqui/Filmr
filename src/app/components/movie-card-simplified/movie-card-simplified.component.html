@@ -18,7 +18,7 @@
     alt="{{ movie.title }}"
     className="object-cover rounded-sm bg-backdrop"
   />
-  <div class="overlay"></div>
+  <div [routerLink]="['/movie', movie.id]" class="overlay"></div>
 
   <div
     class="absolute bottom-5 left-5 right-5 flex items-center justify-between"

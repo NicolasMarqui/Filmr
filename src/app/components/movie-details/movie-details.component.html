@@ -95,7 +95,7 @@
         {{ movieDetail.overview }}
       </p>
 
-      <div class="mt-16" *ngIf="watchProviders">
+      <div class="mt-16" *ngIf="watchProviders?.buy">
         <div class="flex items-center justify-start">
           <div class="h-20">
             <ng-lottie
@@ -105,7 +105,7 @@
           </div>
         </div>
         <ul class="flex items-center gap-3 flex-wrap -mt-1">
-          <li *ngFor="let provider of watchProviders.buy">
+          <li *ngFor="let provider of watchProviders?.buy">
             <img
               class="h-12 w-12 hover:scale-110 transform object-cover rounded-sm"
               src="{{ backdrop_url + provider.logo_path }}"
@@ -127,7 +127,10 @@
       <div class="mt-16" *ngIf="movieVideos.length > 0">
         <app-big-title [title]="'Videos'" [classes]="'mb-5'"></app-big-title>
         <youtube-player videoId="{{ activeVideo.key }}"></youtube-player>
-        <div class="flex mt-2 gap-2 justify-start items-center">
+        <div
+          class="flex mt-2 gap-2 justify-start items-center"
+          *ngIf="movieVideos.length > 1"
+        >
           <button
             (click)="handlePreviousVideo()"
             class="hover:scale-110 transform"
@@ -158,7 +161,7 @@
       <div class="grid grid-cols-2 gap-6 mt-20">
         <app-movie-info
           [classes]="'justify-center items-center'"
-          [title]="movieDetail.runtime"
+          [title]="movieDetail.runtime + 'min'"
           [subtitle]="'Runtime'"
         ></app-movie-info>
         <app-movie-info
