@@ -36,8 +36,8 @@ export class MovieService {
     );
   }
 
-  getSimilarMovies(id: string): Observable<any> {
-    return this.http.get<any>(
+  getSimilarMovies(id: string): Observable<IMoviesResponse> {
+    return this.http.get<IMoviesResponse>(
       `${this.API_URL}/movie/${id}/similar${this.API_KEY}`
     );
   }

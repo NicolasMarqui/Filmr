@@ -11,6 +11,7 @@ import { faHeart, faCheck, faFilm } from '@fortawesome/free-solid-svg-icons';
 })
 export class MovieCardComponent {
   @Input('movie') movie!: IPopularMovies;
+  @Input('isInside') isInside: boolean = false;
 
   favoriteIcon = faHeart;
   checkIcon = faCheck;

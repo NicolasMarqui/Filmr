@@ -14,6 +14,7 @@ import { Component, Input } from '@angular/core';
 export class FavoriteButtonComponent {
   @Input('movie') movie!: IMovieDetail;
   @Input('classes') classes: string = '';
+  @Input('isInside') isInside: boolean = false;
 
   favoriteIcon = faHeart;
   isFavorited: boolean = false;
@@ -58,7 +59,11 @@ export class FavoriteButtonComponent {
 
   checkIfIsBeingFavorited() {
     const allFavoritedMovies = this.local.getData('favorites');
-    const movieId = this.hasRouteId ? Number(this.hasRouteId) : this.movie.id;
+    const movieId = !this.isInside
+      ? this.movie.id
+      : this.hasRouteId
+      ? Number(this.hasRouteId)
+      : this.movie.id;
 
     if (!allFavoritedMovies) return;
 
@@ -79,7 +84,11 @@ export class FavoriteButtonComponent {
 
   removeFromFavorite() {
     const all = JSON.parse(this.local.getData('favorites') || '[]');
-    const movieId = this.hasRouteId ? Number(this.hasRouteId) : this.movie.id;
+    const movieId = !this.isInside
+      ? this.movie.id
+      : this.hasRouteId
+      ? Number(this.hasRouteId)
+      : this.movie.id;
 
     if (all && all.length > 0) {
       let alter = function (movie: any) {

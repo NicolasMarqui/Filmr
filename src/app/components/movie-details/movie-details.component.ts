@@ -15,6 +15,7 @@ import {
   faHeart,
 } from '@fortawesome/free-solid-svg-icons';
 import { Location } from '@angular/common';
+import { IPopularMovies } from './../../_models/index';
 
 let apiLoaded = false;
 
@@ -27,6 +28,7 @@ export class MovieDetailsComponent {
   movieDetail: IMovieDetail = movieDetail;
   movieVideos: IVideosResponse[] = [];
   watchProviders?: TWatchProvidersResult;
+  similarMovies: IPopularMovies[] = [];
 
   activeVideo: any = {};
   movieIndex: number = 0;
@@ -50,10 +52,17 @@ export class MovieDetailsComponent {
   };
 
   ngOnInit() {
+    this.route.url.subscribe((url) => {
+      this.bulkLoad();
+    });
+  }
+
+  bulkLoad() {
     this.loadYoutubePlayer();
     this.loadMovieDetail();
     this.loadMovieVideos();
     this.loadMoviesProviders();
+    this.loadSimilarMovies();
   }
 
   loadYoutubePlayer() {
@@ -72,6 +81,19 @@ export class MovieDetailsComponent {
         this.movieDetail = movie;
         this.backdrop = `${this.backdrop_url}/${movie.backdrop_path}`;
         this.poster = `${this.poster_url}/${movie.poster_path}`;
+      });
+  }
+
+  loadSimilarMovies() {
+    this.movie
+      .getSimilarMovies(this.route.snapshot.paramMap.get('id') ?? '')
+      .subscribe((movie) => {
+        console.log(movie);
+        if (movie.results.length > 4) {
+          this.similarMovies = movie.results.slice(0, 4);
+        } else {
+          this.similarMovies = movie.results;
+        }
       });
   }
 

@@ -8,9 +8,11 @@
   </div>
 
   <div
-    class="-mt-[150px] md:-mt-[130px] relative container gap-10 justify-center items-start flex flex-col md:flex-row z-10"
+    class="-mt-[150px] md:-mt-[130px] relative container gap-10 justify-center items-center lg:items-start flex flex-col lg:flex-row z-10"
   >
-    <div class="poster w-[250px] flex flex-col gap-4 lg:sticky top-[85px]">
+    <div
+      class="poster w-[250px] flex flex-col relative gap-4 lg:sticky top-[85px]"
+    >
       <div class="ribbon ribbon-top-left">
         <span>{{ movieDetail.status }}</span>
       </div>
@@ -26,6 +28,7 @@
           'w-full bg-purple-500 justify-center !text-xl text-white font-bold'
         "
         [movie]="movieDetail"
+        [isInside]="true"
       ></app-track-button>
 
       <div class="flex items-center justify-center gap-3 mt-2">
@@ -82,10 +85,13 @@
         <app-favorite-button
           [movie]="movieDetail"
           [classes]="'!relative'"
+          [isInside]="true"
         ></app-favorite-button>
       </div>
 
-      <span class="text-xs block font-light text-white -mt-3">
+      <span
+        class="text-xs block text-center lg:text-left font-light text-white -mt-3"
+      >
         "{{ movieDetail.tagline }}"
       </span>
 
@@ -96,6 +102,7 @@
       </p>
 
       <div class="mt-16" *ngIf="watchProviders?.buy">
+        <app-big-title [title]="'Watch'" [classes]="'mb-5'"></app-big-title>
         <div class="flex items-center justify-start">
           <div class="h-20">
             <ng-lottie
@@ -180,6 +187,22 @@
           [subtitle]="'Vote average'"
         ></app-movie-info>
       </div>
+    </div>
+  </div>
+
+  <div class="container mt-10" *ngIf="similarMovies.length > 0">
+    <app-big-title
+      [title]="'Similar movies'"
+      [classes]="'mb-5 text-center'"
+    ></app-big-title>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7"
+    >
+      <app-movie-card
+        *ngFor="let movie of similarMovies"
+        [movie]="movie"
+        [isInside]="true"
+      ></app-movie-card>
     </div>
   </div>
 </div>
