@@ -81,3 +81,21 @@ export interface IVideosResponse {
   size: number;
   type: string;
 }
+type TGeneralProviders = {
+  display_priority: number;
+  logo_path: string;
+  provider_id: number;
+  provider_name: string;
+};
+
+export type TWatchProvidersResult = {
+  link: string;
+  flatrate: TGeneralProviders[];
+  rent: TGeneralProviders[];
+  buy: TGeneralProviders[];
+};
+
+export interface IWatchProviders {
+  id: number;
+  results: TWatchProvidersResult;
+}

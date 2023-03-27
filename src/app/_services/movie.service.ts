@@ -1,4 +1,4 @@
-import { IVideosResponse } from './../_models/index';
+import { IVideosResponse, IWatchProviders } from './../_models/index';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -33,6 +33,18 @@ export class MovieService {
   getMovieVideos(id: string): Observable<{ results: IVideosResponse[] }> {
     return this.http.get<{ results: IVideosResponse[] }>(
       `${this.API_URL}/movie/${id}/videos${this.API_KEY}`
+    );
+  }
+
+  getSimilarMovies(id: string): Observable<any> {
+    return this.http.get<any>(
+      `${this.API_URL}/movie/${id}/similar${this.API_KEY}`
+    );
+  }
+
+  getWatchProviders(id: string): Observable<IWatchProviders> {
+    return this.http.get<IWatchProviders>(
+      `${this.API_URL}/movie/${id}/watch/providers${this.API_KEY}`
     );
   }
 }

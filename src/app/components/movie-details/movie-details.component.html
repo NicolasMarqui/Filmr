@@ -95,6 +95,35 @@
         {{ movieDetail.overview }}
       </p>
 
+      <div class="mt-16" *ngIf="watchProviders">
+        <div class="flex items-center justify-start">
+          <div class="h-20">
+            <ng-lottie
+              [options]="options"
+              (animationCreated)="animationCreated($event)"
+            ></ng-lottie>
+          </div>
+        </div>
+        <ul class="flex items-center gap-3 flex-wrap -mt-1">
+          <li *ngFor="let provider of watchProviders.buy">
+            <img
+              class="h-12 w-12 hover:scale-110 transform object-cover rounded-sm"
+              src="{{ backdrop_url + provider.logo_path }}"
+              alt="{{ provider.provider_name }}"
+            />
+          </li>
+        </ul>
+        <p class="text-xs text-white mt-4">
+          All rights reserved to
+          <a
+            class="italic underline font-bold transform hover:underline-offset-2"
+            target="_blank"
+            href="//https://www.justwatch.com/"
+            >JustWatch</a
+          >
+        </p>
+      </div>
+
       <div class="mt-16" *ngIf="movieVideos.length > 0">
         <app-big-title [title]="'Videos'" [classes]="'mb-5'"></app-big-title>
         <youtube-player videoId="{{ activeVideo.key }}"></youtube-player>
@@ -116,27 +145,37 @@
           </button>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="mt-16">
-        <app-big-title [title]="'Info'" [classes]="'mb-5'"></app-big-title>
-        <div class="grid grid-cols-2 gap-6 mt-20">
-          <app-movie-info
-            [title]="movieDetail.runtime"
-            [subtitle]="'Runtime'"
-          ></app-movie-info>
-          <app-movie-info
-            [title]="movieDetail.popularity?.toFixed(2)"
-            [subtitle]="'Popularity'"
-          ></app-movie-info>
-          <app-movie-info
-            [title]="'$' + movieDetail.budget"
-            [subtitle]="'Budget'"
-          ></app-movie-info>
-          <app-movie-info
-            [title]="movieDetail.vote_average?.toFixed(2)"
-            [subtitle]="'Vote average'"
-          ></app-movie-info>
-        </div>
+  <div class="mt-10 py-10 container bg-black relative">
+    <div class="absolute inset-0 bg-pattern-bg z-[1] opacity-50"></div>
+    <div class="z-10 relative">
+      <app-big-title
+        [title]="'Info'"
+        [classes]="'mb-5 text-center'"
+      ></app-big-title>
+      <div class="grid grid-cols-2 gap-6 mt-20">
+        <app-movie-info
+          [classes]="'justify-center items-center'"
+          [title]="movieDetail.runtime"
+          [subtitle]="'Runtime'"
+        ></app-movie-info>
+        <app-movie-info
+          [classes]="'justify-center items-center'"
+          [title]="movieDetail.popularity?.toFixed(2)"
+          [subtitle]="'Popularity'"
+        ></app-movie-info>
+        <app-movie-info
+          [classes]="'justify-center items-center'"
+          [title]="'$' + movieDetail.budget"
+          [subtitle]="'Budget'"
+        ></app-movie-info>
+        <app-movie-info
+          [classes]="'justify-center items-center'"
+          [title]="movieDetail.vote_average?.toFixed(2)"
+          [subtitle]="'Vote average'"
+        ></app-movie-info>
       </div>
     </div>
   </div>

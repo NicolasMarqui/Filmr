@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class MovieInfoComponent {
   @Input('title') title: any = '';
   @Input('subtitle') subtitle: string = '';
+  @Input('classes') classes: string = '';
 }

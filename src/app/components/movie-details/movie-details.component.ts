@@ -1,5 +1,11 @@
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
 import { MovieService } from './../../_services/movie.service';
-import { IMovieDetail, IVideosResponse } from './../../_models/index';
+import {
+  IMovieDetail,
+  IVideosResponse,
+  TWatchProvidersResult,
+} from './../../_models/index';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { movieDetail } from 'src/app/_utils/mock';
@@ -20,6 +26,7 @@ let apiLoaded = false;
 export class MovieDetailsComponent {
   movieDetail: IMovieDetail = movieDetail;
   movieVideos: IVideosResponse[] = [];
+  watchProviders?: TWatchProvidersResult;
 
   activeVideo: any = {};
   movieIndex: number = 0;
@@ -38,12 +45,15 @@ export class MovieDetailsComponent {
     private location: Location
   ) {}
 
+  options: AnimationOptions = {
+    path: '/assets/animations/watch.json',
+  };
+
   ngOnInit() {
     this.loadYoutubePlayer();
     this.loadMovieDetail();
     this.loadMovieVideos();
-    //this.poster = `${this.poster_url}/${this.movieDetail.poster_path}`;
-    //this.backdrop = `${this.backdrop_url}/${this.movieDetail.backdrop_path}`;
+    this.loadMoviesProviders();
   }
 
   loadYoutubePlayer() {
@@ -83,6 +93,17 @@ export class MovieDetailsComponent {
       });
   }
 
+  loadMoviesProviders() {
+    this.movie
+      .getWatchProviders(this.route.snapshot.paramMap.get('id') ?? '')
+      .subscribe((prov: any) => {
+        if (!prov.results) return;
+        const pTProviders = prov.results['US'];
+
+        this.watchProviders = pTProviders;
+      });
+  }
+
   handleGoBack() {
     this.location.back();
   }
@@ -110,4 +131,6 @@ export class MovieDetailsComponent {
 
     this.activeVideo = this.movieVideos[this.movieIndex];
   }
+
+  animationCreated(animationItem: AnimationItem): void {}
 }
