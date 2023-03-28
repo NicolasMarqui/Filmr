@@ -14,7 +14,7 @@
   </div>
   <img
     [routerLink]="['/movie', movie.id]"
-    src="{{ poster }}"
+    src="{{ movie.poster ? poster : noPoster }}"
     alt="{{ movie.title }}"
     className="object-cover rounded-sm bg-backdrop"
   />

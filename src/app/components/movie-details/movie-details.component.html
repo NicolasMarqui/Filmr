@@ -1,7 +1,7 @@
 <div class="min-h-screen relative">
   <div class="z-[2] h-[350px] relative">
     <img
-      src="{{ backdrop }}"
+      src="{{ movieDetail.backdrop_path ? backdrop : noBackdrop }}"
       alt="{{ movieDetail.title }}"
       class="object-cover absolute inset-0 block h-full w-full opacity-30"
     />
@@ -18,7 +18,7 @@
       </div>
 
       <img
-        src="{{ poster }}"
+        src="{{ movieDetail.poster_path ? poster : noPoster }}"
         alt="{{ movieDetail.title }}"
         class="object-cover w-full shadow-md"
       />

@@ -19,6 +19,7 @@ export class MovieCardComponent {
 
   poster: string = '';
   poster_url: string = `https://image.tmdb.org/t/p/w500`;
+  noPoster: string = 'https://placehold.co/500x746/png?text=No+Image';
 
   constructor() {}
 

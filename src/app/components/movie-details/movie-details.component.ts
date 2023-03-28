@@ -37,6 +37,8 @@ export class MovieDetailsComponent {
   backdrop_url: string = `https://image.tmdb.org/t/p/original`;
   poster: string = '';
   poster_url: string = `https://image.tmdb.org/t/p/w500`;
+  noPoster: string = 'https://placehold.co/500x746/png?text=No+Image';
+  noBackdrop: string = 'https://placehold.co/1200x800/png?text=No+Image';
 
   favoriteIcon = faHeart;
   backIcon = faArrowLeft;

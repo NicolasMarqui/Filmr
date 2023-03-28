@@ -15,6 +15,7 @@ export class MovieCardSimplifiedComponent {
 
   poster: string = '';
   poster_url: string = `https://image.tmdb.org/t/p/w500`;
+  noPoster: string = 'https://placehold.co/500x746/png?text=No+Image';
 
   ngOnInit() {
     this.poster = `${this.poster_url}/${this.movie?.poster}`;
