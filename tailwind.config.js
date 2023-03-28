@@ -14,6 +14,8 @@ module.exports = {
       },
       backgroundImage: {
         "home-bg": "url('/assets/bg.jpeg')",
+        "home-2":
+          "url('https://image.tmdb.org/t/p/original//mDfJG3LC3Dqb67AZ52x3Z0jU0uB.jpg')",
         "pattern-bg": "url('/assets/pattern.png')",
         "movies-bg":
           "url('https://image.tmdb.org/t/p/original/i8dshLvq4LE3s0v8PrkDdUyb1ae.jpg')",
