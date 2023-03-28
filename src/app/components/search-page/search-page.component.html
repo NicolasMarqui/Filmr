@@ -27,16 +27,34 @@
     <div class="mt-4" *ngIf="results.length > 0; else noResults">
       <div>
         <h4 class="text-white font-bold text-sm mb-3">
-          Showing {{ results.length }} movies
+          Showing <span>{{ results.length * page }}</span> of
+          {{ total_results }} movies
         </h4>
       </div>
       <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7"
       >
         <app-movie-card
-          *ngFor="let movie of results"
+          *ngFor="
+            let movie of results
+              | paginate
+                : {
+                    itemsPerPage: 20,
+                    currentPage: page,
+                    totalItems: total_results
+                  };
+            let i = index
+          "
           [movie]="movie"
         ></app-movie-card>
+      </div>
+      <div class="flex items-center justify-center mt-5 text-white">
+        <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          (pageChange)="onTableDataChange($event)"
+        >
+        </pagination-controls>
       </div>
     </div>
   </div>

@@ -24,10 +24,10 @@ export class MovieService {
       );
   }
 
-  searchMovies(query: string): Observable<IMoviesResponse> {
+  searchMovies(query: string, page: number = 1): Observable<IMoviesResponse> {
     return this.http
       .get<IMoviesResponse>(
-        `${this.API_URL}/search/movie${this.API_KEY}&query=${query}`
+        `${this.API_URL}/search/movie${this.API_KEY}&query=${query}&page=${page}`
       )
       .pipe(
         map((response) => {

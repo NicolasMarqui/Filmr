@@ -26,6 +26,7 @@ import { MovieInfoComponent } from './components/movie-info/movie-info.component
 import { BigTitleComponent } from './components/big-title/big-title.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SimilarMoviesCardComponent } from './components/similar-movies-card/similar-movies-card.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 export function playerFactory() {
   return player;
@@ -61,6 +62,7 @@ export function playerFactory() {
     LottieModule.forRoot({ player: playerFactory }),
     YouTubePlayerModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
