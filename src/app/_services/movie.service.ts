@@ -24,6 +24,18 @@ export class MovieService {
       );
   }
 
+  searchMovies(query: string): Observable<IMoviesResponse> {
+    return this.http
+      .get<IMoviesResponse>(
+        `${this.API_URL}/search/movie${this.API_KEY}&query=${query}`
+      )
+      .pipe(
+        map((response) => {
+          return response;
+        })
+      );
+  }
+
   getMovieDetail(id: string): Observable<IMovieDetail> {
     return this.http.get<IMovieDetail>(
       `${this.API_URL}/movie/${id}${this.API_KEY}`
