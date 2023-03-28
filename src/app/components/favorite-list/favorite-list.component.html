@@ -1,6 +1,6 @@
 <div class="h-full">
   <div *ngIf="favorites.length > 0; else noFavorites">
-    <div class="flex flex-col h-[310px] overflow-y-auto">
+    <div class="flex flex-col h-[310px] overflow-y-auto overflow-x-hidden">
       <div
         [routerLink]="['/movie', fav.id]"
         *ngFor="let fav of favorites"
