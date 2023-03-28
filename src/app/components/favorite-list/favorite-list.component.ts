@@ -12,6 +12,7 @@ import { faTimes, faTrash } from '@fortawesome/free-solid-svg-icons';
 })
 export class FavoriteListComponent {
   favorites: IFavoritedMovies[] = [];
+
   deleteIcon = faTimes;
   removeAllIcon = faTrash;
 
@@ -54,6 +55,17 @@ export class FavoriteListComponent {
 
       return;
     }
+  }
+
+  renderAddedDate(date: Date): string {
+    let objectDate = new Date(date);
+    let day = objectDate.getDate();
+
+    let month = objectDate.getMonth();
+
+    let year = objectDate.getFullYear();
+
+    return `${day}-${month + 1}-${year}`;
   }
 
   animationCreated(animationItem: AnimationItem): void {}

@@ -67,6 +67,7 @@ export interface IFavoritedMovies {
   title: string;
   poster: string;
   favorited: boolean;
+  favoritedDate: Date;
 }
 
 export interface IVideosResponse {

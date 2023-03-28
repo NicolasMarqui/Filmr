@@ -2,20 +2,26 @@
   <div *ngIf="favorites.length > 0; else noFavorites">
     <div class="flex flex-col h-[310px] overflow-y-auto">
       <div
+        [routerLink]="['/movie', fav.id]"
         *ngFor="let fav of favorites"
-        class="flex items-center justify-between gap-3 border-b border-gray-300 p-4"
+        class="flex items-center relative justify-between gap-3 border-b border-gray-300 cursor-pointer hover:scale-105 transform"
       >
-        <div class="flex items-center gap-2">
+        <div class="flex items-center">
           <img
             src="{{ fav.poster }}"
             alt="{{ fav.title }}"
-            class="w-16 h-16 rounded-full object-cover"
+            class="w-16 h-full object-cover"
           />
-          <h3>{{ fav.title }}</h3>
+          <div class="ml-2 px-2 py-4">
+            <h3>{{ fav.title }}</h3>
+            <p class="text-xs text-gray-400">
+              Added on: {{ renderAddedDate(fav.favoritedDate) }}
+            </p>
+          </div>
         </div>
         <button
           (click)="removeFavorite(fav.id)"
-          class="bg-red-500 p-2 text-white font-black text-lg cursor-pointer"
+          class="bg-red-500 p-2 text-white font-black text-lg cursor-pointer mr-3"
         >
           <fa-icon [icon]="deleteIcon"></fa-icon>
         </button>
