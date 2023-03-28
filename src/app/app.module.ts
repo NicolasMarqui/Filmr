@@ -27,6 +27,8 @@ import { BigTitleComponent } from './components/big-title/big-title.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SimilarMoviesCardComponent } from './components/similar-movies-card/similar-movies-card.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 export function playerFactory() {
   return player;
@@ -63,6 +65,10 @@ export function playerFactory() {
     YouTubePlayerModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

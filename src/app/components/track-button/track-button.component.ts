@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 import { ActivatedRoute } from '@angular/router';
@@ -27,7 +28,11 @@ export class TrackButtonComponent {
     path: '/assets/animations/fireworks.json',
   };
 
-  constructor(private local: LocalService, private route: ActivatedRoute) {}
+  constructor(
+    private local: LocalService,
+    private route: ActivatedRoute,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit() {
     this.route.url.subscribe((url) => {
@@ -62,6 +67,13 @@ export class TrackButtonComponent {
   }
 
   showAnimation() {
+    this.toastr.success(
+      `${this.movie.title} added to your watched list`,
+      'Watched',
+      {
+        progressBar: true,
+      }
+    );
     this.shouldToggleAnimation = true;
 
     window.setTimeout(() => {
